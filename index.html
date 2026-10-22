@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卓郁均 | 個人介紹 & 簡歷</title>
+  <meta name="description" content="卓郁均的個人自我介紹與履歷網頁，大方、有趣，熱愛音樂、看劇與跳舞。">
+  
+  <!-- Google Fonts: 質感現代黑體與襯線字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       1. 變數與整體重置 (CSS Custom Properties & Reset)
+       風格定位：簡約 ins 風格 (暖白/奶灰基調、極致留白、柔和陰影)
+       ========================================================== */
+    :root {
+      --bg-primary: #fbfbfb;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f4f4f5;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --border-color: rgba(228, 228, 231, 0.7);
+      --border-hover: rgba(161, 161, 170, 0.5);
+      
+      --text-main: #18181b;
+      --text-muted: #71717a;
+      --text-light: #a1a1aa;
+      
+      --accent: #27272a;
+      --accent-soft: #f4f4f5;
+      --tag-bg: #f4f4f5;
+      --tag-text: #3f3f46;
+      
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 30px -4px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 40px -6px rgba(0, 0, 0, 0.07);
+      --shadow-float: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-full: 9999px;
+
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* 柔和背景質感光暈 */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 230, 235, 0.6) 0%, rgba(251, 251, 251, 0) 70%);
+      top: -200px;
+      right: -150px;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .ambient-glow-bottom {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 238, 233, 0.5) 0%, rgba(251, 251, 251, 0) 70%);
+      bottom: -150px;
+      left: -150px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ==========================================================
+       2. 容器與佈局 (Container & Layout)
+       ========================================================== */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    /* ==========================================================
+       3. 簡約頂部導航 (Navbar)
+       ========================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(251, 251, 251, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+    }
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--text-main);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ==========================================================
+       4. Hero 首頁介紹區塊 (Profile & Hero)
+       ========================================================== */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-top: 24px;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* 頂部生活感裝飾小膠囊 */
+    .hero-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .badge-ins {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .badge-ins svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .hero-main {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    /* Ins 質感圓形頭像框 */
+    .avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .avatar-ring {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #d4d4d8 0%, #e4e4e7 50%, #f4f4f5 100%);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.5s ease;
+    }
+    .avatar-ring:hover {
+      transform: scale(1.03) rotate(2deg);
+    }
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+      color: var(--text-main);
+      overflow: hidden;
+      position: relative;
+    }
+    .avatar-initials {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      font-style: italic;
+      color: #27272a;
+      letter-spacing: -1px;
+      user-select: none;
+    }
+    .avatar-caption {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-top: -6px;
+    }
+    .avatar-status-icon {
+      position: absolute;
+      bottom: 4px;
+      right: 6px;
+      width: 28px;
+      height: 28px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+    }
+
+    /* 資訊區 */
+    .hero-info {
+      flex-grow: 1;
+    }
+    .hero-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .hero-name {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-pronounce {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: 0.02em;
+    }
+    .hero-one-liner {
+      font-size: 1.25rem;
+      color: var(--text-main);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .highlight-pill {
+      background: #18181b;
+      color: #ffffff;
+      padding: 3px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    /* 互動按鈕群 */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-color);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: #18181b;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #27272a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================
+       5. 區塊通用標題 (Section Header)
+       ========================================================== */
+    .section-header {
+      margin-bottom: 30px;
+    }
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================
+       6. 興趣卡片區塊 (3 Interets Cards)
+       ========================================================== */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .interest-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .interest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-hover);
+    }
+    .interest-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+    .interest-card:hover .interest-icon-box {
+      background: #18181b;
+      color: #ffffff;
+    }
+    .interest-icon-box svg {
+      width: 22px;
+      height: 22px;
+    }
+    .interest-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .interest-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .interest-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .interest-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* 聽音樂專屬微播放小組件 (Ins 氛圍感) */
+    .mini-player-bar {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition-smooth);
+    }
+    .mini-player-bar:hover {
+      background: #eaeaea;
+    }
+    .player-text {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .player-song {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .player-artist {
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+    .sound-waves {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+    }
+    .wave-bar {
+      width: 2.5px;
+      background: #18181b;
+      border-radius: 2px;
+      animation: waveBounce 1.2s ease-in-out infinite alternate;
+    }
+    .wave-bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+    .wave-bar:nth-child(2) { height: 90%; animation-delay: 0.3s; }
+    .wave-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+    .wave-bar:nth-child(4) { height: 100%; animation-delay: 0.4s; }
+    .wave-bar.paused {
+      animation-play-state: paused;
+      opacity: 0.4;
+    }
+
+    @keyframes waveBounce {
+      0% { height: 20%; }
+      100% { height: 100%; }
+    }
+
+    /* ==========================================================
+       7. 技能與熱情區塊 (Skills & Passions)
+       ========================================================== */
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+    .skill-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .skill-type-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: #18181b;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+    }
+    .skill-type-badge.learning {
+      background: #e4e4e7;
+      color: #3f3f46;
+    }
+    .skill-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .skill-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+    .skill-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+    }
+    .skill-item-title {
+      color: var(--text-main);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-bar-container {
+      width: 110px;
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: #18181b;
+      border-radius: var(--radius-full);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================
+       8. 經歷與未來探索區塊 (Journey & Next Chapter)
+       以自信優雅方式呈現「經歷/作品：無」->「新章節展開中」
+       ========================================================== */
+    .journey-card {
+      background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+      border: 1px dashed #d4d4d8;
+      border-radius: var(--radius-md);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+    }
+    .journey-card:hover {
+      border-color: #a1a1aa;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .journey-icon {
+      width: 60px;
+      height: 60px;
+      background: #f4f4f5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.6rem;
+    }
+    .journey-content h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .journey-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .journey-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #10b981;
+      font-weight: 600;
+      margin-top: 10px;
+      background: rgba(16, 185, 129, 0.08);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================
+       9. 互動與問候卡片 (Interactive Connect & Footer)
+       ========================================================== */
+    .connect-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: #d4d4d8;
+      display: block;
+      margin-bottom: -10px;
+    }
+    .quote-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      max-width: 540px;
+      margin: 0 auto 16px auto;
+    }
+    .connect-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* 愛心點讚按鈕微互動 */
+    .like-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+      user-select: none;
+    }
+    .like-btn:hover {
+      background: #ffe4e6;
+      border-color: #fecdd3;
+      color: #e11d48;
+      transform: scale(1.05);
+    }
+    .like-btn.liked {
+      background: #ffe4e6;
+      border-color: #fda4af;
+      color: #e11d48;
+    }
+    .like-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .like-btn.liked svg {
+      transform: scale(1.25);
+    }
+
+    /* 頁尾 */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0 48px 0;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.84rem;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* 複製成功提示 (Toast Notification) */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #18181b;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================
+       10. 捲動淡入動畫 (Scroll Fade-in Animation)
+       ========================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 延遲動畫階梯感 */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ==========================================================
+       11. 響應式微調 (Responsive Styles for Mobile & Tablet)
+       ========================================================== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 18px;
+      }
+      section {
+        padding: 40px 0;
+      }
+      .nav-links {
+        display: none; /* 手機端精簡視覺 */
+      }
+      .hero-card {
+        padding: 28px 20px;
+        gap: 24px;
+      }
+      .hero-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+      .hero-name {
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .hero-one-liner {
+        justify-content: center;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .interests-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .skills-wrapper {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .journey-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+      }
+      .connect-card {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 柔和質感光暈 -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-bottom"></div>
+
+  <!-- 頂部導航 -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="brand-dot"></span>
+        <span>卓郁均</span>
+        <span style="font-weight: 400; font-size: 0.85rem; color: var(--text-light); margin-left: -2px;">YU-CHUN</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#interests">日常熱愛</a></li>
+        <li><a href="#skills">專長探索</a></li>
+        <li><a href="#journey">未來計畫</a></li>
+        <li><a href="#connect">聯繫互動</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 主體內容 -->
+  <main class="container">
+
+    <!-- 1. HERO 自我介紹主卡片 (Ins 個人頁風格) -->
+    <section id="about" style="padding-top: 24px;">
+      <div class="hero-card reveal">
+        <!-- 頂部標籤狀態列 -->
+        <div class="hero-badge-row">
+          <div class="badge-ins">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Living Life in Harmony</span>
+          </div>
+          <div class="badge-ins" style="background: transparent;">
+            <span>📍 簡約・純粹・正向生活</span>
+          </div>
+        </div>
+
+        <!-- 個人核心資料 -->
+        <div class="hero-main">
+          <!-- 質感頭像/意象展示 -->
+          <div class="avatar-wrapper">
+            <div class="avatar-ring">
+              <div class="avatar-inner">
+                <span class="avatar-initials">YC</span>
+                <span class="avatar-caption">Yu-Chun</span>
+              </div>
+            </div>
+            <div class="avatar-status-icon" title="保持活力與好奇心">✨</div>
+          </div>
+
+          <!-- 自介文字 -->
+          <div class="hero-info">
+            <span class="hero-tag">Personal Portfolio</span>
+            <h1 class="hero-name">
+              卓郁均
+              <span class="hero-pronounce">/ Zhuo Yu-Chun</span>
+            </h1>
+            <div class="hero-one-liner">
+              特質定位：
+              <span class="highlight-pill">大方、有趣</span>
+            </div>
+            <p class="hero-desc">
+              你好！我是郁均。性格率真大方，喜歡為身邊的人帶來輕鬆有趣的氛圍。熱愛沉浸在音樂的世界、跟著熱門劇集歡笑思考，並在舞蹈的節奏裡盡情釋放自我。
+            </p>
+          </div>
+        </div>
+
+        <!-- 互動操作按鈕 -->
+        <div class="hero-actions">
+          <a href="#connect" class="btn btn-primary">
+            <span>打個招呼</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+          <button class="btn btn-secondary" onclick="copyContact()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>複製聯繫資訊</span>
+          </button>
+          <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+            <button class="like-btn" id="likeButton" onclick="toggleLike()">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span id="likeCountText">點個讚 88</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 興趣愛好 (3 個特色項目：聽音樂、看劇/綜藝、跳舞) -->
+    <section id="interests">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">My Lifestyle & Vibes</span>
+        <h2 class="section-title">熱愛生活的三個篇章</h2>
+      </div>
+
+      <div class="interests-grid">
+        <!-- 興趣 1: 聽音樂 -->
+        <div class="interest-card reveal reveal-delay-1">
+          <div>
+            <div class="interest-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="interest-title">聽音樂</h3>
+            <p class="interest-desc">
+              耳機是日常的靈感充電站。無論是放鬆抒情、節奏強烈的 R&B 或流行曲風，旋律總能讓心情保持在最好的頻率。
+            </p>
+          </div>
+
+          <!-- Ins 風格迷你播放器元件 (可互動點擊) -->
+          <div class="mini-player-bar" onclick="togglePlayerWave(this)" title="點擊暫停/播放動態">
+            <div class="player-text">
+              <span class="player-song">Daily Playlist ♫</span>
+              <span class="player-artist">Yu-Chun's Favorite</span>
+            </div>
+            <div class="sound-waves" id="soundWaves">
+              <span class="wave-bar"></span>
+              <span class="wave-bar"></span>
+              <span class="wave-bar"></span>
+              <span class="wave-bar"></span>
+            </div>
+          </div>
+
+          <div class="interest-tag-list" style="margin-top: 14px;">
+            <span class="interest-pill">#每日必備</span>
+            <span class="interest-pill">#旋律療癒</span>
+          </div>
+        </div>
+
+        <!-- 興趣 2: 看劇 / 綜藝 -->
+        <div class="interest-card reveal reveal-delay-2">
+          <div>
+            <div class="interest-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
+            </div>
+            <h3 class="interest-title">看劇 / 綜藝</h3>
+            <p class="interest-desc">
+              在好劇本中體會不同的人生縮影，在綜藝的歡樂爆笑裡舒緩壓力。這也是培養「有趣」視角與幽默感的秘密泉源！
+            </p>
+          </div>
+          <div class="interest-tag-list">
+            <span class="interest-pill">#好劇推薦</span>
+            <span class="interest-pill">#爆笑綜藝</span>
+            <span class="interest-pill">#觀察生活</span>
+          </div>
+        </div>
+
+        <!-- 興趣 3: 跳舞 -->
+        <div class="interest-card reveal reveal-delay-3">
+          <div>
+            <div class="interest-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="5" r="2"></circle>
+                <path d="m9 20 3-6 3 6"></path>
+                <path d="m6 8 6 2 6-2"></path>
+                <path d="M12 10v4"></path>
+              </svg>
+            </div>
+            <h3 class="interest-title">跳舞</h3>
+            <p class="interest-desc">
+              讓身體跟隨拍點律動，在鏡子前流汗與雕琢動作。舞蹈不僅是興趣，更是展現大方、自信與個人魅力的最佳時刻。
+            </p>
+          </div>
+          <div class="interest-tag-list">
+            <span class="interest-pill">#律動節奏</span>
+            <span class="interest-pill">#釋放活力</span>
+            <span class="interest-pill">#舞台自信</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 專長與想學習的技能 (跳舞、唱歌) -->
+    <section id="skills">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Skills & Passions</span>
+        <h2 class="section-title">擅長與想探索的熱情</h2>
+      </div>
+
+      <div class="skills-wrapper">
+        <!-- 技能 1: 跳舞 -->
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-card-head">
+            <h3 class="skill-name">跳舞 Dance</h3>
+            <span class="skill-type-badge">擅長與持續精進</span>
+          </div>
+          <p class="skill-desc">
+            擁有良好的節奏敏銳度與身體協調性。享受不同舞風帶來的挑戰，享受踩在拍點上的快感，持續提升動作質感與舞台張力。
+          </p>
+          <div class="skill-highlights">
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>拍點掌握與節奏感</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>肢體協調與展現力</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>舞步學習敏銳度</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技能 2: 唱歌 -->
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-card-head">
+            <h3 class="skill-name">唱歌 Singing</h3>
+            <span class="skill-type-badge learning">想學習與深度探索</span>
+          </div>
+          <p class="skill-desc">
+            熱愛旋律帶來的共鳴，渴望進一步學習發聲技巧、呼吸控制與情感演繹，期望未來能將歌聲與舞蹈融合，綻放更全面的表現！
+          </p>
+          <div class="skill-highlights">
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>音感與音準感受力</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>發聲技巧與氣息練習</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-title">
+                <span>學習熱情與投入度</span>
+              </span>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 經歷與作品：新篇章展開中 (優雅化解「無」) -->
+    <section id="journey">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Milestones & Next Chapter</span>
+        <h2 class="section-title">經歷與未來篇章</h2>
+      </div>
+
+      <div class="journey-card reveal">
+        <div class="journey-icon">🌱</div>
+        <div class="journey-content">
+          <h3>畫布正白，精彩正在醞釀中</h3>
+          <p>
+            「目前的經歷作品欄位尚在蓄勢待發，但生活中的每一分大方積累與熱情探索，都是未來的厚實基底。」
+            帶著開放與真誠的心，期待迎接接下來的挑戰、合作與精彩活動！
+          </p>
+          <div class="journey-status">
+            <span style="display:inline-block; width:6px; height:6px; background:#10b981; border-radius:50%;"></span>
+            READY FOR NEW OPPORTUNITIES
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 互動連結與金句區塊 -->
+    <section id="connect">
+      <div class="connect-card reveal">
+        <span class="quote-mark">“</span>
+        <p class="quote-text">
+          大方是我的處事底色，有趣是我的靈魂模樣。<br>
+          永遠帶著熱情，期待與更多美好的事物相遇！
+        </p>
+        <span style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.15em;">
+          — 卓郁均 Zhuo Yu-Chun
+        </span>
+
+        <div class="connect-btns">
+          <button class="btn btn-primary" onclick="copyContact()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>複製 Email 聯繫</span>
+          </button>
+          <button class="btn btn-secondary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span>返回頂部 ↑</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="currentYear"></span> 卓郁均 Zhuo Yu-Chun. Minimalist Portfolio.</p>
+      <p style="font-size: 0.78rem;">Designed with simplicity & care ・ 簡約 ins 風格</p>
+    </div>
+  </footer>
+
+  <!-- 提示浮動框 (Toast) -->
+  <div class="toast" id="toast">已複製聯繫資訊到剪貼簿！</div>
+
+  <!-- ==========================================================
+       JavaScript 互動與淡入動畫邏輯
+       ========================================================== -->
+  <script>
+    // 1. 動態設置當前年份
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // 2. 捲動淡入動畫 (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // 進入視野後停止重複觀察，保持流暢體驗
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. 一鍵複製聯繫資訊與 Toast 提示
+    function copyContact() {
+      const contactInfo = "卓郁均 (Zhuo Yu-Chun) - yuchun.contact@example.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(contactInfo).then(() => {
+          showToast("已成功複製郁均的聯繫資訊！");
+        }).catch(() => {
+          showToast("已準備好聯繫：yuchun.contact@example.com");
+        });
+      } else {
+        // 備用方案
+        const tempInput = document.createElement("input");
+        tempInput.value = contactInfo;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        showToast("已成功複製聯繫資訊！");
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // 4. 愛心點讚互動微動效
+    let liked = false;
+    let likeCount = 88;
+    function toggleLike() {
+      const btn = document.getElementById('likeButton');
+      const text = document.getElementById('likeCountText');
+      liked = !liked;
+      if (liked) {
+        likeCount++;
+        btn.classList.add('liked');
+        text.textContent = `已點讚 ${likeCount}`;
+        showToast("感謝你對郁均的喜愛與鼓勵！❤️");
+      } else {
+        likeCount--;
+        btn.classList.remove('liked');
+        text.textContent = `點個讚 ${likeCount}`;
+      }
+    }
+
+    // 5. 聽音樂音波小動態切換
+    function togglePlayerWave(container) {
+      const waves = container.querySelectorAll('.wave-bar');
+      waves.forEach(bar => {
+        bar.classList.toggle('paused');
+      });
+      const isPaused = waves[0].classList.contains('paused');
+      showToast(isPaused ? "已暫停音樂節奏 ⏸" : "正在播放日常節奏 ♫");
+    }
+  </script>
+</body>
+</html>
