@@ -4,43 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>卓郁均 | 個人介紹 & 簡歷</title>
-  <meta name="description" content="卓郁均的個人自我介紹與履歷網頁，大方、有趣，熱愛音樂、看劇與跳舞。">
+  <meta name="description" content="卓郁均 (YU-JUN / YJ) 的個人自我介紹與履歷網頁，大方、有趣，韓系大地色風格。">
   
   <!-- Google Fonts: 質感現代黑體與襯線字體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
        1. 變數與整體重置 (CSS Custom Properties & Reset)
-       風格定位：簡約 ins 風格 (暖白/奶灰基調、極致留白、柔和陰影)
+       風格定位：韓系大地色美學 (白、杏色、燕麥奶、卡其色、暖棕色)
        ========================================================== */
     :root {
-      --bg-primary: #fbfbfb;
-      --bg-surface: #ffffff;
-      --bg-subtle: #f4f4f5;
-      --bg-card: rgba(255, 255, 255, 0.88);
-      --border-color: rgba(228, 228, 231, 0.7);
-      --border-hover: rgba(161, 161, 170, 0.5);
+      /* 大地色系背景 */
+      --bg-primary: #fbf9f6;          /* 溫潤奶油燕麥底色 */
+      --bg-surface: #ffffff;          /* 柔白表面 */
+      --bg-subtle: #f5efe6;           /* 杏仁奶茶色 */
+      --bg-card: rgba(255, 255, 255, 0.9);
       
-      --text-main: #18181b;
-      --text-muted: #71717a;
-      --text-light: #a1a1aa;
+      /* 大地色細緻邊框 */
+      --border-color: rgba(226, 214, 198, 0.65); /* 輕柔卡其邊線 */
+      --border-hover: rgba(184, 166, 148, 0.8);
       
-      --accent: #27272a;
-      --accent-soft: #f4f4f5;
-      --tag-bg: #f4f4f5;
-      --tag-text: #3f3f46;
+      /* 暖調深咖啡與大地文字色 (取代生硬冷黑) */
+      --text-main: #332720;           /* 深焙濃縮咖啡黑 */
+      --text-muted: #75655a;          /* 暖摩卡灰褐 */
+      --text-light: #ad9e92;          /* 溫柔卡其淡灰 */
       
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 10px 30px -4px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 20px 40px -6px rgba(0, 0, 0, 0.07);
-      --shadow-float: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+      /* 暖焦糖 / 大地棕重點色 */
+      --accent: #8b684d;              /* 質感焦糖栗子棕 */
+      --accent-hover: #73543d;
+      --accent-soft: #f4ece2;         /* 淺杏燕麥 */
+      
+      /* 韓系標籤色彩 */
+      --tag-bg: #f4ede3;              /* 杏奶茶標籤底色 */
+      --tag-text: #594537;            /* 暖棕標籤字 */
+      
+      /* 大地暖調柔和陰影 */
+      --shadow-sm: 0 2px 10px rgba(71, 52, 40, 0.03);
+      --shadow-md: 0 12px 32px -4px rgba(71, 52, 40, 0.06);
+      --shadow-lg: 0 22px 45px -6px rgba(71, 52, 40, 0.08);
 
-      --radius-sm: 10px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
       --radius-full: 9999px;
 
       --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,20 +68,20 @@
       background-color: var(--bg-primary);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
+      line-height: 1.75;
       letter-spacing: -0.01em;
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
     }
 
-    /* 柔和背景質感光暈 */
+    /* 韓系柔和溫暖光暈 (杏色、奶茶米色漸層) */
     .ambient-glow {
       position: fixed;
-      width: 600px;
-      height: 600px;
+      width: 620px;
+      height: 620px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(230, 230, 235, 0.6) 0%, rgba(251, 251, 251, 0) 70%);
+      background: radial-gradient(circle, rgba(239, 227, 212, 0.75) 0%, rgba(251, 249, 246, 0) 70%);
       top: -200px;
       right: -150px;
       z-index: -1;
@@ -81,10 +89,10 @@
     }
     .ambient-glow-bottom {
       position: fixed;
-      width: 500px;
-      height: 500px;
+      width: 540px;
+      height: 540px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(240, 238, 233, 0.5) 0%, rgba(251, 251, 251, 0) 70%);
+      background: radial-gradient(circle, rgba(236, 220, 201, 0.6) 0%, rgba(251, 249, 246, 0) 70%);
       bottom: -150px;
       left: -150px;
       z-index: -1;
@@ -92,7 +100,7 @@
     }
 
     /* ==========================================================
-       2. 容器與佈局 (Container & Layout)
+       2. 容器與排版 (Container & Layout)
        ========================================================== */
     .container {
       max-width: 860px;
@@ -105,7 +113,7 @@
     }
 
     /* ==========================================================
-       3. 簡約頂部導航 (Navbar)
+       3. 韓系極簡導航列 (Navbar)
        ========================================================== */
     .navbar {
       position: sticky;
@@ -113,7 +121,7 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(251, 251, 251, 0.85);
+      background: rgba(251, 249, 246, 0.88);
       border-bottom: 1px solid var(--border-color);
       transition: var(--transition-smooth);
     }
@@ -136,10 +144,10 @@
     .brand-dot {
       width: 8px;
       height: 8px;
-      background: #10b981;
+      background: var(--accent);
       border-radius: 50%;
       display: inline-block;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 0 3px rgba(139, 104, 77, 0.2);
     }
     .nav-links {
       display: flex;
@@ -164,7 +172,7 @@
       left: 0;
       width: 0;
       height: 1.5px;
-      background: var(--text-main);
+      background: var(--accent);
       transition: width 0.3s ease;
     }
     .nav-links a:hover::after {
@@ -172,7 +180,7 @@
     }
 
     /* ==========================================================
-       4. Hero 首頁介紹區塊 (Profile & Hero)
+       4. Hero 自我介紹主卡片 (Korean Warm Aesthetic)
        ========================================================== */
     .hero-card {
       background: var(--bg-card);
@@ -181,7 +189,7 @@
       padding: 48px;
       margin-top: 24px;
       box-shadow: var(--shadow-md);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -189,7 +197,6 @@
       gap: 32px;
     }
 
-    /* 頂部生活感裝飾小膠囊 */
     .hero-badge-row {
       display: flex;
       justify-content: space-between;
@@ -212,7 +219,7 @@
     .badge-ins svg {
       width: 14px;
       height: 14px;
-      fill: currentColor;
+      fill: var(--accent);
     }
 
     .hero-main {
@@ -221,17 +228,17 @@
       gap: 36px;
     }
 
-    /* Ins 質感圓形頭像框 */
+    /* 韓系卡其杏色柔霧頭像環 */
     .avatar-wrapper {
       position: relative;
       flex-shrink: 0;
     }
     .avatar-ring {
-      width: 130px;
-      height: 130px;
+      width: 132px;
+      height: 132px;
       border-radius: 50%;
       padding: 4px;
-      background: linear-gradient(135deg, #d4d4d8 0%, #e4e4e7 50%, #f4f4f5 100%);
+      background: linear-gradient(135deg, #dfd3c3 0%, #ebe2d5 45%, #f6f1ea 100%);
       box-shadow: var(--shadow-md);
       transition: transform 0.5s ease;
     }
@@ -242,7 +249,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #fafafa;
+      background: #fdfbf8;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -254,26 +261,27 @@
     }
     .avatar-initials {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 500;
+      font-size: 3rem;
+      font-weight: 600;
       font-style: italic;
-      color: #27272a;
+      color: var(--text-main);
       letter-spacing: -1px;
       user-select: none;
     }
     .avatar-caption {
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-light);
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      font-weight: 600;
       margin-top: -6px;
     }
     .avatar-status-icon {
       position: absolute;
       bottom: 4px;
       right: 6px;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       background: #ffffff;
       border-radius: 50%;
       display: flex;
@@ -284,15 +292,15 @@
       font-size: 0.85rem;
     }
 
-    /* 資訊區 */
+    /* 個人資料文字區 */
     .hero-info {
       flex-grow: 1;
     }
     .hero-tag {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.82rem;
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       font-weight: 600;
       margin-bottom: 6px;
       display: block;
@@ -311,7 +319,7 @@
       font-size: 0.95rem;
       font-weight: 400;
       color: var(--text-light);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
     }
     .hero-one-liner {
       font-size: 1.25rem;
@@ -323,7 +331,7 @@
       gap: 10px;
     }
     .highlight-pill {
-      background: #18181b;
+      background: var(--accent);
       color: #ffffff;
       padding: 3px 14px;
       border-radius: var(--radius-full);
@@ -338,7 +346,7 @@
       max-width: 520px;
     }
 
-    /* 互動按鈕群 */
+    /* 韓系質感按鈕 */
     .hero-actions {
       display: flex;
       align-items: center;
@@ -362,13 +370,13 @@
       border: 1px solid transparent;
     }
     .btn-primary {
-      background: #18181b;
+      background: var(--text-main);
       color: #ffffff;
     }
     .btn-primary:hover {
-      background: #27272a;
+      background: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 18px rgba(139, 104, 77, 0.25);
     }
     .btn-secondary {
       background: #ffffff;
@@ -391,7 +399,7 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--text-light);
+      color: var(--accent);
       font-weight: 600;
       margin-bottom: 6px;
       display: block;
@@ -404,7 +412,7 @@
     }
 
     /* ==========================================================
-       6. 興趣卡片區塊 (3 Interets Cards)
+       6. 興趣卡片區塊 (3 Interets Cards - 韓系杏色暖調)
        ========================================================== */
     .interests-grid {
       display: grid;
@@ -437,11 +445,11 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      color: var(--text-main);
+      color: var(--accent);
       transition: var(--transition-smooth);
     }
     .interest-card:hover .interest-icon-box {
-      background: #18181b;
+      background: var(--accent);
       color: #ffffff;
     }
     .interest-icon-box svg {
@@ -457,7 +465,7 @@
     .interest-desc {
       font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 16px;
     }
     .interest-tag-list {
@@ -469,13 +477,13 @@
     .interest-pill {
       font-size: 0.75rem;
       padding: 4px 10px;
-      background: var(--bg-subtle);
+      background: var(--tag-bg);
       border-radius: var(--radius-full);
-      color: var(--text-muted);
+      color: var(--tag-text);
       font-weight: 500;
     }
 
-    /* 聽音樂專屬微播放小組件 (Ins 氛圍感) */
+    /* 聽音樂專屬韓系動態微播放器 */
     .mini-player-bar {
       margin-top: 14px;
       padding: 10px 14px;
@@ -490,7 +498,7 @@
       transition: var(--transition-smooth);
     }
     .mini-player-bar:hover {
-      background: #eaeaea;
+      background: #ede4d7;
     }
     .player-text {
       display: flex;
@@ -507,7 +515,8 @@
     }
     .player-artist {
       font-size: 0.7rem;
-      color: var(--text-light);
+      color: var(--accent);
+      font-weight: 500;
     }
     .sound-waves {
       display: flex;
@@ -517,7 +526,7 @@
     }
     .wave-bar {
       width: 2.5px;
-      background: #18181b;
+      background: var(--accent);
       border-radius: 2px;
       animation: waveBounce 1.2s ease-in-out infinite alternate;
     }
@@ -567,13 +576,14 @@
       font-weight: 600;
       padding: 4px 10px;
       border-radius: var(--radius-full);
-      background: #18181b;
+      background: var(--text-main);
       color: #ffffff;
       letter-spacing: 0.05em;
     }
     .skill-type-badge.learning {
-      background: #e4e4e7;
-      color: #3f3f46;
+      background: var(--bg-subtle);
+      color: var(--accent);
+      border: 1px solid var(--border-color);
     }
     .skill-name {
       font-size: 1.35rem;
@@ -613,18 +623,17 @@
     }
     .skill-bar-fill {
       height: 100%;
-      background: #18181b;
+      background: var(--accent);
       border-radius: var(--radius-full);
       transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ==========================================================
        8. 經歷與未來探索區塊 (Journey & Next Chapter)
-       以自信優雅方式呈現「經歷/作品：無」->「新章節展開中」
        ========================================================== */
     .journey-card {
-      background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
-      border: 1px dashed #d4d4d8;
+      background: linear-gradient(145deg, #ffffff 0%, #fbf9f6 100%);
+      border: 1px dashed #d5c8b8;
       border-radius: var(--radius-md);
       padding: 36px;
       position: relative;
@@ -636,14 +645,14 @@
       transition: var(--transition-smooth);
     }
     .journey-card:hover {
-      border-color: #a1a1aa;
+      border-color: var(--accent);
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
     }
     .journey-icon {
       width: 60px;
       height: 60px;
-      background: #f4f4f5;
+      background: var(--bg-subtle);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -667,10 +676,10 @@
       align-items: center;
       gap: 6px;
       font-size: 0.78rem;
-      color: #10b981;
+      color: var(--accent);
       font-weight: 600;
       margin-top: 10px;
-      background: rgba(16, 185, 129, 0.08);
+      background: rgba(139, 104, 77, 0.1);
       padding: 3px 10px;
       border-radius: var(--radius-full);
     }
@@ -692,7 +701,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 3.5rem;
       line-height: 1;
-      color: #d4d4d8;
+      color: #dfd3c3;
       display: block;
       margin-bottom: -10px;
     }
@@ -711,7 +720,7 @@
       flex-wrap: wrap;
     }
 
-    /* 愛心點讚按鈕微互動 */
+    /* 韓系暖調點讚按鈕 */
     .like-btn {
       display: inline-flex;
       align-items: center;
@@ -728,15 +737,15 @@
       user-select: none;
     }
     .like-btn:hover {
-      background: #ffe4e6;
-      border-color: #fecdd3;
-      color: #e11d48;
+      background: #f7e6dc;
+      border-color: #e8c8b6;
+      color: #b3593b;
       transform: scale(1.05);
     }
     .like-btn.liked {
-      background: #ffe4e6;
-      border-color: #fda4af;
-      color: #e11d48;
+      background: #f7e6dc;
+      border-color: #e5bcaa;
+      color: #b3593b;
     }
     .like-btn svg {
       width: 16px;
@@ -748,7 +757,6 @@
       transform: scale(1.25);
     }
 
-    /* 頁尾 */
     footer {
       border-top: 1px solid var(--border-color);
       padding: 32px 0 48px 0;
@@ -763,19 +771,19 @@
       align-items: center;
     }
 
-    /* 複製成功提示 (Toast Notification) */
+    /* 韓系暖棕提示浮動框 (Toast Notification) */
     .toast {
       position: fixed;
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #18181b;
+      background: var(--text-main);
       color: #ffffff;
       padding: 12px 24px;
       border-radius: var(--radius-full);
       font-size: 0.88rem;
       font-weight: 500;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(51, 39, 32, 0.25);
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
@@ -800,13 +808,12 @@
       transform: translateY(0);
     }
 
-    /* 延遲動畫階梯感 */
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* ==========================================================
-       11. 響應式微調 (Responsive Styles for Mobile & Tablet)
+       11. 響應式適配 (Mobile & Tablet)
        ========================================================== */
     @media (max-width: 768px) {
       .container {
@@ -816,7 +823,7 @@
         padding: 40px 0;
       }
       .nav-links {
-        display: none; /* 手機端精簡視覺 */
+        display: none;
       }
       .hero-card {
         padding: 28px 20px;
@@ -859,7 +866,7 @@
 </head>
 <body>
 
-  <!-- 柔和質感光暈 -->
+  <!-- 韓系柔和溫暖光暈 -->
   <div class="ambient-glow"></div>
   <div class="ambient-glow-bottom"></div>
 
@@ -869,7 +876,7 @@
       <a href="#" class="nav-brand">
         <span class="brand-dot"></span>
         <span>卓郁均</span>
-        <span style="font-weight: 400; font-size: 0.85rem; color: var(--text-light); margin-left: -2px;">YU-CHUN</span>
+        <span style="font-weight: 500; font-size: 0.85rem; color: var(--accent); margin-left: -2px;">YU-JUN</span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">關於我</a></li>
@@ -884,7 +891,7 @@
   <!-- 主體內容 -->
   <main class="container">
 
-    <!-- 1. HERO 自我介紹主卡片 (Ins 個人頁風格) -->
+    <!-- 1. HERO 自我介紹主卡片 (韓系大地色氛圍) -->
     <section id="about" style="padding-top: 24px;">
       <div class="hero-card reveal">
         <!-- 頂部標籤狀態列 -->
@@ -894,18 +901,18 @@
             <span>Living Life in Harmony</span>
           </div>
           <div class="badge-ins" style="background: transparent;">
-            <span>📍 簡約・純粹・正向生活</span>
+            <span>🌿 韓系大地・溫暖純粹・正向生活</span>
           </div>
         </div>
 
         <!-- 個人核心資料 -->
         <div class="hero-main">
-          <!-- 質感頭像/意象展示 -->
+          <!-- 質感頭像：英文縮寫 YJ、全名 YU-JUN -->
           <div class="avatar-wrapper">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <span class="avatar-initials">YC</span>
-                <span class="avatar-caption">Yu-Chun</span>
+                <span class="avatar-initials">YJ</span>
+                <span class="avatar-caption">YU-JUN</span>
               </div>
             </div>
             <div class="avatar-status-icon" title="保持活力與好奇心">✨</div>
@@ -916,14 +923,14 @@
             <span class="hero-tag">Personal Portfolio</span>
             <h1 class="hero-name">
               卓郁均
-              <span class="hero-pronounce">/ Zhuo Yu-Chun</span>
+              <span class="hero-pronounce">/ Zhuo Yu-Jun</span>
             </h1>
             <div class="hero-one-liner">
               特質定位：
               <span class="highlight-pill">大方、有趣</span>
             </div>
             <p class="hero-desc">
-              你好！我是郁均。性格率真大方，喜歡為身邊的人帶來輕鬆有趣的氛圍。熱愛沉浸在音樂的世界、跟著熱門劇集歡笑思考，並在舞蹈的節奏裡盡情釋放自我。
+              你好！我是郁均 (YU-JUN)。性格率真大方，喜歡為身邊的人帶來輕鬆溫暖的氛圍。熱愛沉浸在音樂的世界、跟著熱門劇集歡笑思考，並在舞蹈的節奏裡盡情釋放自我。
             </p>
           </div>
         </div>
@@ -968,15 +975,15 @@
             </div>
             <h3 class="interest-title">聽音樂</h3>
             <p class="interest-desc">
-              耳機是日常的靈感充電站。無論是放鬆抒情、節奏強烈的 R&B 或流行曲風，旋律總能讓心情保持在最好的頻率。
+              耳機是日常的靈感充電站。無論是放鬆抒情、節奏強烈的 R&B 或溫暖流行曲風，旋律總能讓心情保持在最好的頻率。
             </p>
           </div>
 
-          <!-- Ins 風格迷你播放器元件 (可互動點擊) -->
+          <!-- 韓系動態微播放器元件 -->
           <div class="mini-player-bar" onclick="togglePlayerWave(this)" title="點擊暫停/播放動態">
             <div class="player-text">
               <span class="player-song">Daily Playlist ♫</span>
-              <span class="player-artist">Yu-Chun's Favorite</span>
+              <span class="player-artist">YU-JUN's Favorite</span>
             </div>
             <div class="sound-waves" id="soundWaves">
               <span class="wave-bar"></span>
@@ -1122,7 +1129,7 @@
       </div>
     </section>
 
-    <!-- 4. 經歷與作品：新篇章展開中 (優雅化解「無」) -->
+    <!-- 4. 經歷與作品：新篇章展開中 (自信溫暖呈現) -->
     <section id="journey">
       <div class="section-header reveal">
         <span class="section-eyebrow">Milestones & Next Chapter</span>
@@ -1138,7 +1145,7 @@
             帶著開放與真誠的心，期待迎接接下來的挑戰、合作與精彩活動！
           </p>
           <div class="journey-status">
-            <span style="display:inline-block; width:6px; height:6px; background:#10b981; border-radius:50%;"></span>
+            <span style="display:inline-block; width:6px; height:6px; background:var(--accent); border-radius:50%;"></span>
             READY FOR NEW OPPORTUNITIES
           </div>
         </div>
@@ -1153,8 +1160,8 @@
           大方是我的處事底色，有趣是我的靈魂模樣。<br>
           永遠帶著熱情，期待與更多美好的事物相遇！
         </p>
-        <span style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.15em;">
-          — 卓郁均 Zhuo Yu-Chun
+        <span style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600;">
+          — 卓郁均 Zhuo Yu-Jun (YJ)
         </span>
 
         <div class="connect-btns">
@@ -1174,8 +1181,8 @@
   <!-- 頁尾 -->
   <footer>
     <div class="container footer-content">
-      <p>© <span id="currentYear"></span> 卓郁均 Zhuo Yu-Chun. Minimalist Portfolio.</p>
-      <p style="font-size: 0.78rem;">Designed with simplicity & care ・ 簡約 ins 風格</p>
+      <p>© <span id="currentYear"></span> 卓郁均 Zhuo Yu-Jun (YJ). Korean Minimalist Portfolio.</p>
+      <p style="font-size: 0.78rem; color: var(--text-light);">Designed with warmth & simplicity ・ 韓系大地色風格</p>
     </div>
   </footer>
 
@@ -1195,7 +1202,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // 進入視野後停止重複觀察，保持流暢體驗
           observer.unobserve(entry.target);
         }
       });
@@ -1209,15 +1215,14 @@
 
     // 3. 一鍵複製聯繫資訊與 Toast 提示
     function copyContact() {
-      const contactInfo = "卓郁均 (Zhuo Yu-Chun) - yuchun.contact@example.com";
+      const contactInfo = "卓郁均 (Zhuo Yu-Jun / YJ) - yujun.contact@example.com";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(contactInfo).then(() => {
           showToast("已成功複製郁均的聯繫資訊！");
         }).catch(() => {
-          showToast("已準備好聯繫：yuchun.contact@example.com");
+          showToast("已準備好聯繫：yujun.contact@example.com");
         });
       } else {
-        // 備用方案
         const tempInput = document.createElement("input");
         tempInput.value = contactInfo;
         document.body.appendChild(tempInput);
